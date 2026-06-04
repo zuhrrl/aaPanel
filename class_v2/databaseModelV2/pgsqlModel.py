@@ -1046,8 +1046,7 @@ class main(databaseBase, panelPgsql):
                     newpassword
                 )
             )
-        if isError is not None:
-            return isError
+        
 
         # 修改SQLITE
         public.M('databases').where("id=? AND LOWER(type)=LOWER('PgSql')", (id,)).setField('password', newpassword)
