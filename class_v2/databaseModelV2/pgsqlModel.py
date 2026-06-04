@@ -1030,7 +1030,7 @@ class main(databaseBase, panelPgsql):
         data = pgsql_obj.query('SELECT rolname FROM pg_roles;')
         if username not in data:
             # 添加用户
-            result = self.__CreateUsers(find['sid'], username, username, newpassword, "127.0.0.0.1")
+            result = self.__CreateUsers(find['sid'], username, username, newpassword, "127.0.0.1")
         else:
             result = pgsql_obj.execute("""ALTER USER "{}" with password '{}';""".format(username, newpassword))
         isError = self.IsSqlError(result)
